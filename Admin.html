@@ -1,91 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Smoke Games Admin Login</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      /* Add your styles here */
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      
-      header {
-        background-color: #333;
-        color: white;
-        padding: 10px;
-        text-align: center;
-      }
-      
-      form {
-        background-color: #ddd;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        display: inline-block;
-        margin: 20px auto;
-        padding: 20px;
-        text-align: center;
-        width: 30%;
-      }
-      
-      input[type=text], input[type=password] {
-        display: block;
-        margin-bottom: 10px;
-        padding: 10px;
-        width: 100%;
-      }
-      
-      button {
-        background-color: #555;
-        border: none;
-        border-radius: 5px;
-        color: white;
-        cursor: pointer;
-        padding: 10px;
-        width: 100%;
-      }
-      
-      button:hover {
-        background-color: #333;
-      }
-      
-      p.error {
-        color: red;
-        font-size: 0.8em;
-        margin: 10px 0;
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Smoke Games Admin Login</h1>
-    </header>
-    <form>
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
-      <button type="submit">Login</button>
-      <p class="error" id="error"></p>
-    </form>
-    <script>
-      // Add your JavaScript here
-      const form = document.querySelector('form');
-      const error = document.querySelector('#error');
-      
-      form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const username = event.target.username.value;
-        const password = event.target.password.value;
-        if (username === 'admin' && password === 'password') {
-          window.location.href = 'admin.html';
-        } else {
-          error.textContent = 'Incorrect username or password. Please try again.';
-        }
-      });
-    </script>
-  </body>
+<head>
+	<title>Admin Login - Smoke Game Website</title>
+	<style>
+		body {
+			background-color: #111;
+			color: #fff;
+			font-family: 'Press Start 2P', cursive;
+			margin: 0;
+			padding: 0;
+		}
+		
+		h1 {
+			font-size: 60px;
+			margin: 50px 0 0 50px;
+			text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF00FF, 0 0 70px #FF00FF, 0 0 80px #FF00FF, 0 0 100px #FF00FF;
+		}
+		
+		form {
+			margin: 100px auto;
+			padding: 20px;
+			width: 400px;
+			background-color: #222;
+			border: 2px solid #FF00FF;
+			box-shadow: 0 0 20px #FF00FF;
+			border-radius: 10px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		input[type=text], input[type=password] {
+			padding: 10px;
+			margin: 10px;
+			border-radius: 5px;
+			border: none;
+			background-color: #333;
+			color: #fff;
+			width: 100%;
+		}
+		
+		input[type=submit] {
+			padding: 10px;
+			margin: 10px;
+			border-radius: 5px;
+			border: none;
+			background-color: #FF00FF;
+			color: #111;
+			font-size: 20px;
+			cursor: pointer;
+			transition: all 0.2s ease-in-out;
+		}
+		
+		input[type=submit]:hover {
+			background-color: #111;
+			color: #FF00FF;
+			transform: scale(1.1);
+		}
+	</style>
+</head>
+<body>
+	<h1>Smoke - Admin Login</h1>
+	
+	<form>
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username" placeholder="Enter your username">
+		
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" placeholder="Enter your password">
+		
+		<input type="submit" value="Login">
+	</form>
+</body>
 </html>
