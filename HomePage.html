@@ -1,111 +1,112 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Smoke Games - Play Exciting Games Now!</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      /* Add your styles here */
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      
-      header {
-        background-color: #333;
-        color: white;
-        padding: 10px;
-        text-align: center;
-      }
-      
-      nav {
-        background-color: #555;
-        color: white;
-        display: flex;
-        justify-content: space-around;
-        padding: 10px;
-      }
-      
-      nav a {
-        color: white;
-        text-decoration: none;
-      }
-      
-      nav a:hover {
-        color: #ddd;
-      }
-      
-      main {
-        padding: 20px;
-      }
-      
-      h1 {
-        font-size: 3em;
-        text-align: center;
-      }
-      
-      p {
-        font-size: 1.2em;
-        text-align: center;
-      }
-      
-      .game {
-        background-color: #ddd;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        display: inline-block;
-        margin: 20px;
-        padding: 20px;
-        text-align: center;
-        width: 30%;
-      }
-      
-      .game img {
-        height: 150px;
-        margin-bottom: 10px;
-        width: 150px;
-      }
-      
-      .game h2 {
-        font-size: 1.5em;
-        margin-top: 0;
-      }
-      
-      .game p {
-        margin-bottom: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Smoke Games</h1>
-      <p>Play exciting games now!</p>
-    </header>
-    <nav>
-      <a href="#game1">Game 1</a>
-      <a href="#game2">Game 2</a>
-      <a href="#game3">Game 3</a>
-    </nav>
-    <main>
-      <div class="game" id="game1">
-        <img src="game1.png" alt="Game 1">
-        <h2>Game 1</h2>
-        <p>A description of Game 1 goes here.</p>
-        <button>Play Game 1</button>
-      </div>
-      <div class="game" id="game2">
-        <img src="game2.png" alt="Game 2">
-        <h2>Game 2</h2>
-        <p>A description of Game 2 goes here.</p>
-        <button>Play Game 2</button>
-      </div>
-      <div class="game" id="game3">
-        <img src="game3.png" alt="Game 3">
-        <h2>Game 3</h2>
-        <p>A description of Game 3 goes here.</p>
-        <button>Play Game 3</button>
-      </div>
-    </main>
-  </body>
-</html>
+<head>
+	<title>Smoke - Game Website</title>
+	<style>
+		body {
+			background-color: #111;
+			color: #fff;
+			font-family: 'Press Start 2P', cursive;
+			margin: 0;
+			padding: 0;
+		}
+		
+		h1 {
+			font-size: 60px;
+			margin: 50px 0 0 50px;
+			text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF00FF, 0 0 70px #FF00FF, 0 0 80px #FF00FF, 0 0 100px #FF00FF;
+		}
+		
+		.navbar {
+			background-color: #333;
+			height: 50px;
+			padding: 10px;
+			text-align: center;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 1;
+		}
+		
+		.navbar a {
+			color: #fff;
+			font-size: 20px;
+			margin-right: 20px;
+			text-decoration: none;
+			padding: 10px;
+			transition: all 0.2s ease-in-out;
+			border-radius: 10px;
+		}
+		
+		.navbar a:hover {
+			background-color: #FF00FF;
+			color: #111;
+			transform: scale(1.2);
+		}
+		
+		.container {
+			margin-top: 100px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			align-items: center;
+		}
+		
+		.box {
+			background-color: #222;
+			border: 2px solid #FF00FF;
+			box-shadow: 0 0 20px #FF00FF;
+			padding: 20px;
+			margin: 20px;
+			width: 200px;
+			height: 200px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			border-radius: 10px;
+			transition: all 0.2s ease-in-out;
+		}
+		
+		.box:hover {
+			transform: scale(1.1);
+			box-shadow: 0 0 30px #FF00FF;
+		}
+		
+		.box h2 {
+			font-size: 24px;
+			margin: 10px;
+		}
+		
+		.box p {
+			font-size: 16px;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="navbar">
+		<a href="#">Home</a>
+		<a href="#">Games</a>
+		<a href="#">About</a>
+		<a href="#">Contact</a>
+	</div>
+	
+	<h1>Smoke</h1>
+	
+	<div class="container">
+		<div class="box">
+			<h2>Game 1</h2>
+			<p>Description of Game 1</p>
+			<a href="#">Play</a>
+		</div>
+		
+		<div class="box">
+			<h2>Game 2</h2>
+			<p>Description of Game 2</p>
+			<a href="#">Play</a>
+		</div>
+		
+	
