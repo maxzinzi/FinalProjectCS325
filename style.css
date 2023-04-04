@@ -1,3 +1,4 @@
+
 <style>
 		body {
 			background-color: #111;
@@ -54,4 +55,134 @@
 			color: #FF00FF;
 			transform: scale(1.1);
 		}
-	</style>
+
+body {
+	background-color: #111;
+	color: #fff;
+	font-family: 'Press Start 2P', cursive;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	font-size: 60px;
+	margin: 50px 0 0 50px;
+	text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0000FF, 0 0 70px #0000FF, 0 0 80px #0000FF, 0 0 100px #0000FF;
+}
+
+.navbar {
+	background-color: #333;
+	height: 50px;
+	padding: 10px;
+	text-align: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+}
+
+.navbar a {
+	color: #fff;
+	font-size: 20px;
+	margin-right: 20px;
+	text-decoration: none;
+	padding: 10px;
+	transition: all 0.2s ease-in-out;
+	border-radius: 10px;
+}
+
+.navbar a:hover {
+	background-color: #FF00FF;
+	color: #111;
+	transform: scale(1.2);
+}
+
+.container {
+	margin-top: 100px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.box {
+	background-color: #222;
+	border: 2px solid #FF00FF;
+	box-shadow: 0 0 20px #FF00FF;
+	padding: 20px;
+	margin: 20px;
+	width: 300px;
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border-radius: 10px;
+	transition: all 0.2s ease-in-out;
+}
+
+.box:hover {
+	transform: scale(1.1);
+	box-shadow: 0 0 30px #FF00FF;
+}
+
+.box h2 {
+	font-size: 24px;
+	margin: 10px;
+}
+
+.box p {
+	font-size: 16px;
+	margin: 10px;
+}
+
+.arcade-btn {
+    background-color: #f0d84a;
+    color: #000000;
+    border: 2px solid #000000;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.arcade-btn:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.arcade-popup {
+    background-color: #f0d84a;
+    color: #000000;
+    border: 2px solid #000000;
+    font-size: 18px;
+    font-weight: bold;
+	z-index: 999;
+  	width: 400px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.arcade-btn2 {
+    background-color: #2ecc71;
+    color: #000000;
+    border: 2px solid #000000;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.arcade-btn2:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+</style>
