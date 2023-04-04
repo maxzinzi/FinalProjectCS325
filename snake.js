@@ -6,11 +6,11 @@ var scoreDisplayElem = document.querySelector(".scoreboard");
 var score = 0;
 
 // sound effects
-let eatSound = new Audio('sounds/snake/apple-munch-40169.mp3');
+let eatSound = new Audio("sounds/snake/apple-munch-40169.mp3");
 eatSound.volume = 0.5;
 eatSound.playbackRate = 2.5;
 
-let gameOverSound = new Audio('sounds/snake/videogame-death-sound-43894.mp3');
+let gameOverSound = new Audio("sounds/snake/videogame-death-sound-43894.mp3");
 gameOverSound.volume = 0.25;
 gameOverSound.playbackRate = 2;
 
