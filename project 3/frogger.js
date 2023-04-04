@@ -5,6 +5,23 @@ const grid = 48;
 const gridGap = 10;
 const score = 0;
 
+// sound effects
+let jumpSound = new Audio('sounds/frogger/jews_harp_boing-7111.mp3');
+jumpSound.volume = 0.5;
+jumpSound.playbackRate = 3;
+
+let splatSound = new Audio('sounds/frogger/cartoon-splat-6086.mp3');
+splatSound.volume = 0.25;
+splatSound.playbackRate = 1.5;
+
+let splashSound = new Audio('sounds/frogger/water-splash-46402.mp3');
+splashSound.volume = 0.25;
+splashSound.playbackRate = 1.5;
+
+let frogSound = new Audio('sounds/frogger/frog_quak-81741.mp3');
+frogSound.volume = 0.25;
+frogSound.playbackRate = 1.5;
+
 // a simple sprite prototype function
 function Sprite(props) {
   // shortcut for assigning all object properties to the sprite
@@ -289,6 +306,7 @@ function loop() {
 
       // reset frogger if got hit by car
       if (froggerRow > rows.length / 2) {
+        splatSound.play();
         frogger.x = grid * 6;
         frogger.y = grid * 13;
       }
@@ -311,19 +329,21 @@ function loop() {
       // check to see if there isn't a scored frog already there
       !scoredFroggers.find((frog) => frog.x === col * grid)
     ) {
+      frogSound.play();
       scoredFroggers.push(
         new Sprite({
           ...frogger,
           x: col * grid,
           y: frogger.y + 5,
         })
-      );
-      score += 1;
-      console.log(score);
-    }
+        );
+        score += 1;
+        console.log(score);
+      }
 
     // reset frogger if not on obstacle in river
     if (froggerRow < rows.length / 2 - 1) {
+      splashSound.play();
       frogger.x = grid * 6;
       frogger.y = grid * 13;
     }
@@ -334,19 +354,23 @@ function loop() {
 document.addEventListener("keydown", function (e) {
   // left arrow key
   if (e.which === 37) {
+    jumpSound.play();
     frogger.x -= grid;
   }
   // right arrow key
   else if (e.which === 39) {
+    jumpSound.play();
     frogger.x += grid;
   }
 
   // up arrow key
   else if (e.which === 38) {
+    jumpSound.play();
     frogger.y -= grid;
   }
   // down arrow key
   else if (e.which === 40) {
+    jumpSound.play();
     frogger.y += grid;
   }
 

@@ -1,6 +1,15 @@
 var canvas = document.getElementById("game");
 var context = canvas.getContext("2d");
 
+// sound effects
+let eatSound = new Audio('sounds/snake/apple-munch-40169.mp3');
+eatSound.volume = 0.5;
+eatSound.playbackRate = 2.5;
+
+let gameOverSound = new Audio('sounds/snake/videogame-death-sound-43894.mp3');
+gameOverSound.volume = 0.25;
+gameOverSound.playbackRate = 2;
+
 // the canvas width & height, snake x & y, and the apple x & y, all need to be a multiples of the grid size in order for collision detection to work
 // (e.g. 16 * 25 = 400)
 var grid = 16;
@@ -81,6 +90,7 @@ function loop() {
 
     // snake ate apple
     if (cell.x === apple.x && cell.y === apple.y) {
+      eatSound.play();
       snake.maxCells++;
 
       // canvas is 400x400 which is 25x25 grids
@@ -92,6 +102,7 @@ function loop() {
     for (var i = index + 1; i < snake.cells.length; i++) {
       // snake occupies same space as a body part. reset game
       if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+        gameOverSound.play();
         snake.x = 160;
         snake.y = 160;
         snake.cells = [];

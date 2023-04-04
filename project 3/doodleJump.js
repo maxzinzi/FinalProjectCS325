@@ -11,6 +11,14 @@ const gravity = 0.33;
 const drag = 0.3;
 const bounceVelocity = -12.5;
 
+// sound effects
+let jumpSound = new Audio('sounds/doodle/mixkit-quick-jump-arcade-game-239.wav');
+jumpSound.volume = 0.5;
+
+let fallSound = new Audio('sounds/doodle/mixkit-player-losing-or-failing-2042.wav');
+fallSound.volume = 0.25;
+fallSound.playbackRate = 2.0;
+
 // minimum and maximum vertical space between each platform
 let minPlatformSpace = 15;
 let maxPlatformSpace = 20;
@@ -154,10 +162,23 @@ function loop() {
       doodle.y + doodle.height > platform.y
     ) {
       // reset doodle position so it's on top of the platform
+      jumpSound.play();
       doodle.y = platform.y - doodle.height;
       doodle.dy = bounceVelocity;
     }
   });
+
+  if (doodle.y > canvas.height) {
+    fallSound.play(); // play losing sound effect
+    // reset the game after 2 seconds
+    platforms = [{ x: canvas.width / 2 - platformWidth / 2, y: platformStart }];
+    minPlatformSpace = 15;
+    maxPlatformSpace = 20;
+    doodle.x = canvas.width / 2 - 20;
+    doodle.y = platformStart - 60;
+    doodle.dx = 0;
+    doodle.dy = 0;
+  }
 
   // draw doodle
   context.fillStyle = "yellow";
@@ -170,6 +191,7 @@ function loop() {
     return platform.y < canvas.height;
   });
 }
+
 
 // listen to keyboard events to move doodle
 document.addEventListener("keydown", function (e) {

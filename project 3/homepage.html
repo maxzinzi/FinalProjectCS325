@@ -1,42 +1,81 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Smoke - Game Website</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<meta charset="UTF-8">
-</head>
-<body>
-	<div class="navbar">
-		<a href="#">Home</a>
-		<a href="#">Games</a>
-		<a href="#">About</a>
-		<a href="#">Contact</a>
-	</div>
-	
-	<br>
-	<br>
-	<br>
-	<h1 class="w3-center">Smoke</h1>
-	
-	<div class="container">
-		<div class="box">
-			<h2>Snake</h2>
-			<p>Description of Game 1</p>
-			<a href="snake.html">Play</a>
+	<head>
+		<title>Smoke - Game Website</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div class="navbar">
+			<a href="#">Home</a>
+			<a href="#">Games</a>
+			<a href="#">About</a>
+			<a href="#">Contact</a>
 		</div>
 		
-		<div class="box">
-			<h2>Frogger</h2>
-			<p>Description of Game 2</p>
-			<a href="frogger.html">Play</a>
-		</div>
+		<br>
+		<br>
+		<br>
+		<h1 class="w3-center">Smoke</h1>
+		
+		<div class="container">
+			<div class="box">
+				<h2>Snake</h2>
+				<p>Description of Game 1</p>
+				<p>
+					<button id="snake-tutorial" class="arcade-btn">Tutorial</button>
+				</p>
+				<div id="snake-tutorial-popup" class="arcade-popup">
+					<h2>Snake Tutorial</h2>
+					<p>Use the <kbd>&larr;</kbd> <kbd>&uarr;</kbd> <kbd>&rarr;</kbd> <kbd>&darr;</kbd> keys to move the snake.</p>
+					<p>Eat the food to score points and grow longer.</p>
+					<p>Don't run into your own body!</p>
+					<p><small>(Click to Exit)</small></p>
+				</div>
+				<a href="snake.html">
+					<button class="arcade-btn2">Play</button>
+				</a>
+			</div>
+			
+			<div class="box">
+				<h2>Frogger</h2>
+				<p>Description of Game 2</p>
+				<p>
+					<button id="frogger-tutorial" class="arcade-btn">Tutorial</button>
+				</p>
+				<div id="frogger-tutorial-popup" class="arcade-popup">
+					<h2>Frogger Tutorial</h2>
+					<p>Help the frog safely cross the busy road and river to reach its destination.</p>
+					<p>Use the <kbd>&larr;</kbd> <kbd>&uarr;</kbd> <kbd>&rarr;</kbd> <kbd>&darr;</kbd> keys to move the frog.</p>
+					<p>Watch out for cars and trucks on the road, and hop on logs and turtles in the river!</p>
+					<p>Make it across the road and river to earn points.</p>
+					<p><small>(Click to Exit)</small></p>
+				</div>
+				<a href="frogger.html">
+					<button class="arcade-btn2">Play</button>
+				</a>
+			</div>
 
-		<div class="box">
-			<h2>Doodle Jump</h2>
-			<p>Description of Game 3</p>
-			<a href="doodleJump.html">Play</a>
+			<div class="box">
+				<h2>Doodle Jump</h2>
+				<p>Description of Game 3</p>
+				<p>
+					<button id="doodle-tutorial" class="arcade-btn">Tutorial</button>
+				</p>
+				<div id="doodle-tutorial-popup" class="arcade-popup">
+					<h2>Doodle Jump Tutorial</h2>
+					<p>Help the doodle jump as high as possible without falling.</p>
+					<p>Use the <kbd>&larr;</kbd> <kbd>&rarr;</kbd> keys to move the doodle.</p>
+					<p>Jump onto platforms to reach higher and higher.</p>
+					<p>How high can you go?</p>
+					<p><small>(Click to Exit)</small></p>
+				</div>
+				<a href="doodleJump.html">
+					<button class="arcade-btn2">Play</button>
+				</a>
+			</div>
 		</div>
-	</div>
-		
-	
+		<script src="homepage.js"></script>
+	</body>
+</html>
