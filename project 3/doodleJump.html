@@ -6,7 +6,17 @@
   <meta charset="UTF-8">
 </head>
 <body>
-<canvas width="375" height="667" id="game"></canvas>
+   <div class="grid-container">
+        <div>
+        <p>
+            <h1 class="scoreboard" style="color: black">0</h1>   
+        </p>
+        </div>
+        <div> 
+            <canvas width="375" height="667" id="game"></canvas>
+        </div>
+    </div>
+<button class="pause" onmousedown="pause()" class="pause">Pause</button>
 <script src="doodleJump.js"></script>
 </body>
 </html>

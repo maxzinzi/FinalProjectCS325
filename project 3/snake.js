@@ -1,6 +1,10 @@
 var canvas = document.getElementById("game");
 var context = canvas.getContext("2d");
 
+var paused = false;
+var scoreDisplayElem = document.querySelector(".scoreboard");
+var score = 0;
+
 // sound effects
 let eatSound = new Audio('sounds/snake/apple-munch-40169.mp3');
 eatSound.volume = 0.5;
@@ -48,6 +52,7 @@ function loop() {
   if (++count < 4) {
     return;
   }
+  if (paused) throwError();
 
   count = 0;
   context.clearRect(0, 0, canvas.width, canvas.height);
@@ -92,6 +97,7 @@ function loop() {
     if (cell.x === apple.x && cell.y === apple.y) {
       eatSound.play();
       snake.maxCells++;
+      scoreDisplayElem.innerHTML = ++score;
 
       // canvas is 400x400 which is 25x25 grids
       apple.x = getRandomInt(0, 25) * grid;
@@ -102,6 +108,7 @@ function loop() {
     for (var i = index + 1; i < snake.cells.length; i++) {
       // snake occupies same space as a body part. reset game
       if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+        scoreDisplayElem.innerHTML = " 0";
         gameOverSound.play();
         snake.x = 160;
         snake.y = 160;
@@ -143,8 +150,16 @@ document.addEventListener("keydown", function (e) {
   else if (e.which === 40 && snake.dy === 0) {
     snake.dy = grid;
     snake.dx = 0;
+  } else if (e.which == 32) {
+    paused = !paused;
+    document.querySelector(".pause").innerHTML = paused ? "Play" : "Pause";
   }
 });
+
+function pause() {
+  paused = !paused;
+  document.querySelector(".pause").innerHTML = paused ? "Play" : "Pause";
+}
 
 // start the game
 requestAnimationFrame(loop);

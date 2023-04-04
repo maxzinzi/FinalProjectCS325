@@ -1,9 +1,12 @@
 const canvas = document.getElementById("game");
 const context = canvas.getContext("2d");
+var scoreDisplayElem = document.getElementById("scoreboard");
 
 const grid = 48;
 const gridGap = 10;
-const score = 0;
+var score = 0;
+
+var paused = false;
 
 // sound effects
 let jumpSound = new Audio('sounds/frogger/jews_harp_boing-7111.mp3');
@@ -209,6 +212,7 @@ for (let i = 0; i < patterns.length; i++) {
 // game loop
 function loop() {
   requestAnimationFrame(loop);
+  if (paused) throwError();
   context.clearRect(0, 0, canvas.width, canvas.height);
 
   // draw the game background
@@ -337,8 +341,8 @@ function loop() {
           y: frogger.y + 5,
         })
         );
-        score += 1;
-        console.log(score);
+        if (score < 1) score++;
+        scoreDisplayElem.innerHTML = score++;
       }
 
     // reset frogger if not on obstacle in river
@@ -372,12 +376,21 @@ document.addEventListener("keydown", function (e) {
   else if (e.which === 40) {
     jumpSound.play();
     frogger.y += grid;
+  } else if (e.which == 32) {
+    paused = !paused;
+    document.querySelector(".pause").innerHTML = paused ? "Play" : "Pause";
   }
 
   // clamp frogger position to stay on screen
   frogger.x = Math.min(Math.max(0, frogger.x), canvas.width - grid);
   frogger.y = Math.min(Math.max(grid, frogger.y), canvas.height - grid * 2);
 });
+
+function pause() {
+  paused = !paused;
+  document.querySelector(".pause").innerHTML = paused ? "Play" : "Pause";
+}
+
 
 // start the game
 requestAnimationFrame(loop);

@@ -1,6 +1,10 @@
 const canvas = document.getElementById("game");
 const context = canvas.getContext("2d");
 
+var paused = false;
+var scoreDisplayElem = document.querySelector(".scoreboard");
+var score = 0;
+
 // width and height of each platform and where platforms start
 const platformWidth = 65;
 const platformHeight = 20;
@@ -82,6 +86,7 @@ let prevDoodleY = doodle.y;
 // game loop
 function loop() {
   requestAnimationFrame(loop);
+  if (paused) throwError();
   context.clearRect(0, 0, canvas.width, canvas.height);
 
   // apply gravity to doodle
@@ -165,6 +170,7 @@ function loop() {
       jumpSound.play();
       doodle.y = platform.y - doodle.height;
       doodle.dy = bounceVelocity;
+      scoreDisplayElem.innerHTML = score++;
     }
   });
 
@@ -206,8 +212,16 @@ document.addEventListener("keydown", function (e) {
     keydown = true;
     playerDir = 1;
     doodle.dx = 3;
+  } else if (e.which == 32) {
+    paused = !paused;
+    document.querySelector(".pause").innerHTML = paused ? "Play" : "Pause";
   }
 });
+
+function pause() {
+  paused = !paused;
+  document.querySelector(".pause").innerHTML = paused ? "Play" : "Pause";
+}
 
 document.addEventListener("keyup", function (e) {
   keydown = false;

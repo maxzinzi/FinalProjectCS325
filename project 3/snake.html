@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Basic Snake HTML Game</title>
-  <link rel="stylesheet" href="snake.css">
-  <meta charset="UTF-8">
-</head>
-<body>
-  <canvas width="400" height="400" id="game"></canvas>
-  <script src="snake.js"></script>
-</body>
+    <head>
+        <link rel="stylesheet" href="snake.css">
+        <title>Welcome to the Snake Game!</title>
+    </head>
+    <body>
+    <div class="grid-container">
+        <div>
+        <p>
+            <h1 class="scoreboard" style="color:white">0</h1>   
+        </p>
+        </div>
+        <div> 
+            <canvas width="400" height="400" id="game"></canvas>
+        </div>
+    </div>
+    <button class="pause" onmousedown="pause()" class="pause">Pause</button>
+    <script src="snake.js"></script>
+    </body>
 </html>
