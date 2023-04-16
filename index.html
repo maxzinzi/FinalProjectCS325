@@ -1,31 +1,22 @@
 <!DOCTYPE html>
-<html>
-	<link rel="stylesheet" href="style.css">
-<head>
-	<title>Login - Smoke Game Website</title>
-</head>
-<body>
-	<h1>Smoke - Login</h1>
-	
-	<form>
-		<label for="username">Username:</label>
-		<input type="text" id="username" name="username" placeholder="Enter your username">
-		
-		<label for="password">Password:</label>
-		<input type="password" id="password" name="password" placeholder="Enter your password">
-		
-		<input type="button"  value="Login" onclick=validate() />
-	</form>
-</body>
-	<script>
-		function validate() {
-			var username = document.getElementById("username").value;
-			var password = document.getElementById("password").value;
-			if (username === "SoggieMuffins" && password === "1234") {
-				window.location.href = "LandingPage.html";
-			} else {
-				alert("Invalid username or password.");
-			}
-		}
-	</script>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Create Account</h1>
+    <form id="createAccountForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <button type="submit">Create Account</button>
+    </form>
+    <script type="module" src="index.js"> </script>
+  </body>
 </html>
