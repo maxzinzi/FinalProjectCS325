@@ -5,10 +5,10 @@ event.preventDefault();
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
     if(checkExistingUser(username)) {
-        alert(`Account with username: ${username} already exists!`)
+        alert(`Account with username: ${username} already exists!`);
     }
     else {
-        createUser(username, password);
+        alert("idk i just needed to put something in the else part");
     }
 });
 

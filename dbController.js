@@ -42,10 +42,9 @@ const checkExistingUser = async (username) => {
     await get(child(dbref, "users/" + username))
     .then((snapshot)=>{
         if(snapshot.exists()){
-            alert('user exists 1');
-            bs = true;
+            alert('user exists');
         } else {
-            bs = false;
+            alert('user does not exist');
         }
     })
     return bs;
