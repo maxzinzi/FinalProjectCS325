@@ -22,8 +22,8 @@ import { getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.19.1/
 
 const db = getDatabase();
 
-const createUser = (userID, password) => {
-    set(ref(db, "users/" + userID), {
+const createUser = async (userID, password) => {
+    await set(ref(db, "users/" + userID), {
         uid: userID,
         pwd: password,
         froggerHighScore: 0,
@@ -36,20 +36,20 @@ const createUser = (userID, password) => {
     });
 }
 
-//  async function checkExistingUser(username) {
-      //     const dbref = ref(db);
-      //     var bs;
-      //     get(child(dbref, "users/" + username))
-      //     .then((snapshot)=>{
-      //         if(snapshot.exists()){
-      //             alert('user exists 1');
-      //             bs = true;
-      //         } else {
-      //             bs = false;
-      //         }
-      //     })
-      //     return bs;
-      // }
+const checkExistingUser = async (username) => {
+    const dbref = ref(db);
+    var bs;
+    await get(child(dbref, "users/" + username))
+    .then((snapshot)=>{
+        if(snapshot.exists()){
+            alert('user exists 1');
+            bs = true;
+        } else {
+            bs = false;
+        }
+    })
+    return bs;
+}
 
 
-export {createUser};
+export {createUser, checkExistingUser};
