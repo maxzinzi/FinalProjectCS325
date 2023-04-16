@@ -1,10 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCbn7KssU40UHe3TxB44pATKCvnbkrZTfo",
   authDomain: "cs325finalproject.firebaseapp.com",
@@ -15,16 +10,14 @@ const firebaseConfig = {
   measurementId: "G-F38ETQ87N5",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-import { getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+import { getDatabase, set, ref, get, child, update } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 
 const db = getDatabase();
 
 const createUser = async (userID, password) => {
     await set(ref(db, "users/" + userID), {
-        uid: userID,
         pwd: password,
         froggerHighScore: 0,
         snakeHighScore: 0,
@@ -38,17 +31,115 @@ const createUser = async (userID, password) => {
 
 const checkExistingUser = async (username) => {
     const dbref = ref(db);
-    var bs;
+    var userExists;
     await get(child(dbref, "users/" + username))
     .then((snapshot)=>{
         if(snapshot.exists()){
-            alert('user exists');
+            userExists = true;
         } else {
-            alert('user does not exist');
+            userExists = false;
         }
     })
-    return bs;
+    return userExists;
 }
 
+const checkUserNameAndPassword = async (username, password) => {
+  const dbref = ref(db);
+  var passwordMatches;
+  await get(child(dbref, "users/" + username)).then((snapshot) => {
+    if (snapshot.exists()) {
+        if(password == snapshot.val().pwd) {
+            passwordMatches = true;
+        }
+        else{
+            passwordMatches = false;
+        }
+    } else {
+      passwordMatches = false;
+    }
+  });
+  return passwordMatches;
+};
 
-export {createUser, checkExistingUser};
+const getUserStats = async (username) => {
+    const dbref = ref(db);
+    var allStats = [];
+    await get(child(dbref, "users/" + username)).then((snapshot) => {
+        if(snapshot.exists()) {
+            allStats = [snapshot.val().froggerHighScore, snapshot.val().snakeHighScore, snapshot.val().DJHighScore];
+        }
+        else{
+            alert("user doesnt exist lmao?");
+        }
+    });
+    return allStats;
+}
+
+const getFroggerHighScore = async (username) => {
+    const dbref = ref(db);
+    var frogScore;
+    await get(child(dbref, "users/" + username)).then((snapshot) => {
+      if (snapshot.exists()) {
+        frogScore = snapshot.val().froggerHighScore;
+      } else {
+        alert("user doesnt exist lmao?");
+      }
+    });
+    return frogScore;
+}
+
+const getSnakeHighScore = async (username) => {
+  const dbref = ref(db);
+  var snakeScore;
+  await get(child(dbref, "users/" + username)).then((snapshot) => {
+    if (snapshot.exists()) {
+      snakeScore = snapshot.val().snakeHighScore;
+    } else {
+      alert("user doesnt exist lmao?");
+    }
+  });
+  return snakeScore;
+};
+
+const getDJHighScore = async (username) => {
+  const dbref = ref(db);
+  var DJscore;
+  await get(child(dbref, "users/" + username)).then((snapshot) => {
+    if (snapshot.exists()) {
+      DJscore = snapshot.val().DJHighScore;
+    } else {
+      alert("user doesnt exist lmao?");
+    }
+  });
+  return DJscore;
+};
+
+const setFroggerHighScore = async (username, newFroggerScore) => {
+    await update(ref(db, "users/" + username), {froggerHighScore: newFroggerScore});
+}
+
+const setSnakeHighScore = async (username, newSnakeScore) => {
+  await update(ref(db, "users/" + username), {
+    snakeHighScore: newSnakeScore,
+  });
+};
+
+const setDJHighScore = async (username, newDJScore) => {
+  await update(ref(db, "users/" + username), {
+    DJHighScore: newDJScore,
+  });
+};
+
+
+export {
+  createUser,
+  checkExistingUser,
+  checkUserNameAndPassword,
+  getUserStats,
+  setFroggerHighScore,
+  setSnakeHighScore,
+  setDJHighScore,
+  getFroggerHighScore,
+  getSnakeHighScore,
+  getDJHighScore
+};
