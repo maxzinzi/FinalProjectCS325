@@ -6,6 +6,9 @@
 			font-family: 'Press Start 2P', cursive;
 			margin: 0;
 			padding: 0;
+			background-image: url('backgroundcarpet.jpeg');
+  			background-repeat: repeat; /* This will make the image repeat both horizontally and vertically */
+}
 		}
 		
 		h1 {
