@@ -14,6 +14,7 @@ let gameOverSound = new Audio('sounds/snake/videogame-death-sound-43894.mp3');
 gameOverSound.volume = 0.25;
 gameOverSound.playbackRate = 2;
 
+
 // the canvas width & height, snake x & y, and the apple x & y, all need to be a multiples of the grid size in order for collision detection to work
 // (e.g. 16 * 25 = 400)
 var grid = 16;
@@ -154,7 +155,15 @@ document.addEventListener("keydown", function (e) {
     paused = !paused;
     document.querySelector(".pause").innerHTML = paused ? "Play" : "Pause";
   }
+
+  // prevent up or down arrow key from scrolling
+  if (e.which === 38 || e.which === 40) {
+    e.preventDefault();
+  }
 });
+
+
+
 
 function pause() {
   paused = !paused;

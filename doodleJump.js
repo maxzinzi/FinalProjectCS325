@@ -115,6 +115,7 @@ function loop() {
       // cap max space
       maxPlatformSpace = Math.min(maxPlatformSpace, canvas.height / 2);
     }
+    
   } else {
     doodle.y += doodle.dy;
   }
@@ -148,6 +149,7 @@ function loop() {
     doodle.x = -doodle.width;
   }
 
+
   // draw platforms
   context.fillStyle = "green";
   platforms.forEach(function (platform) {
@@ -170,7 +172,10 @@ function loop() {
       jumpSound.play();
       doodle.y = platform.y - doodle.height;
       doodle.dy = bounceVelocity;
-      scoreDisplayElem.innerHTML = score++;
+
+      score++;
+      scoreDisplayElem.innerHTML = score;
+
     }
   });
 
@@ -215,6 +220,11 @@ document.addEventListener("keydown", function (e) {
   } else if (e.which == 32) {
     paused = !paused;
     document.querySelector(".pause").innerHTML = paused ? "Play" : "Pause";
+  }
+
+  // prevent up or down arrow key from scrolling
+  if (e.which === 38 || e.which === 40) {
+    e.preventDefault();
   }
 });
 
