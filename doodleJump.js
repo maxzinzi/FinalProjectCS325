@@ -189,6 +189,8 @@ function loop() {
     doodle.y = platformStart - 60;
     doodle.dx = 0;
     doodle.dy = 0;
+    score = 0;
+    scoreDisplayElem.innerHTML = score;
   }
 
   // draw doodle
