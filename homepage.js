@@ -73,15 +73,12 @@ doodleTutorialPopup.addEventListener('mouseleave', () => {
   });
 
 //pop up stats stuff
-const popupContainer = document.getElementById('popup-container');
+const highScoresBtn = document.getElementById('frogger-scores-btn');
+const highScoresContainer = document.getElementById('frogger-scores-container');
 
-function showPopup() {
-  popupContainer.style.display = 'block';
-}
-
-function hidePopup() {
-  popupContainer.style.display = 'none';
-}
-
-document.addEventListener('mouseover', showPopup);
-document.addEventListener('mouseout', hidePopup);
+highScoresBtn.addEventListener('click', () => {
+  highScoresContainer.style.display = 'block';
+});
+highScoresContainer.addEventListener('mouseleave', () => {
+  highScoresContainer.style.display = 'none';
+});
