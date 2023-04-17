@@ -17,10 +17,13 @@
 
       <button type="submit" class="arcade-btn2">Create Account</button>
       <br>
-      <a href="index.html">
-      <button class="arcade-btn2">Login Page</button>
-    </a>
+      <button class="arcade-btn2" onclick=loginPage()>Login Page</button>
     </form>
-    <script type="module" src="createAccount.js"> </script>
+    <script type="module" src="createAccount.js">
+    <script>
+		function loginPage() {
+			window.location.href = "index.html";
+		}
+	</script></script>
   </body>
 </html>
