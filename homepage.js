@@ -1,3 +1,26 @@
+// game pop ups
+function openPopup(gameId, gameHtml) {
+  var popup = document.getElementById("popup");
+  var popupContent = document.getElementById("popup-content");
+  var game = gameHtml; // use the game HTML file name as the URL
+  
+  // Set the size of the iframe element to make the popup bigger
+  popupContent.innerHTML = '<iframe src="' + game + '" width="800" height="800" tabindex="0"></iframe>';
+
+  popup.style.display = "block";
+
+  // Give focus to the iframe
+  var iframe = document.querySelector('iframe');
+  iframe.contentWindow.focus();
+}
+
+function closePopup() {
+  var popup = document.getElementById("popup");
+  popup.style.display = "none";
+  document.getElementById("popup-content").innerHTML = "";
+}
+
+
 // Snake
 const snakeTutorialBtn = document.getElementById('snake-tutorial');
 const snakeTutorialPopup = document.getElementById('snake-tutorial-popup');
@@ -48,3 +71,4 @@ doodleTutorialPopup.addEventListener('click', () => {
 doodleTutorialPopup.addEventListener('mouseleave', () => {
     doodleTutorialPopup.style.display = 'none';
   });
+

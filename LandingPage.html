@@ -22,7 +22,7 @@
 		<h1 class="w3-center">Smoke</h1>
 		
 		<div class="container">
-			<div class="box">
+			<div class="box" id="game1">
 				<h2>Snake</h2>
 				<p>The player must keep the snake from colliding with itself, which gets harder as the snake lengthens.</p>
 				<p>
@@ -35,12 +35,10 @@
 					<p>Don't run into your own body!</p>
 					<p><small>(Click to Exit)</small></p>
 				</div>
-				<a href="snake.html">
-					<button class="arcade-btn2">Play</button>
-				</a>
+				<button class="arcade-btn2" onclick="openPopup('game1', 'snake.html')">Play</button>
 			</div>
 			
-			<div class="box">
+			<div class="box" id="game2">
 				<h2>Frogger</h2>
 				<p>Control a Frog and try and cross the road while avoiding getting hit by a car!</p>
 				<p>
@@ -54,12 +52,10 @@
 					<p>Make it across the road and river to earn points.</p>
 					<p><small>(Click to Exit)</small></p>
 				</div>
-				<a href="frogger.html">
-					<button class="arcade-btn2">Play</button>
-				</a>
+				<button class="arcade-btn2" onclick="openPopup('game1', 'frogger.html')">Play</button>
 			</div>
 
-			<div class="box">
+			<div class="box" id="game3">
 				<h2>Doodle Jump</h2>
 				<p>Jump on platform after platform while trying not to fall!</p>
 				<p>
@@ -73,6 +69,16 @@
 					<p>How high can you go?</p>
 					<p><small>(Click to Exit)</small></p>
 				</div>
+				<button class="arcade-btn2" onclick="openPopup('game1', 'doodleJump.html')">Play</button>
+			</div>
+		</div>
+		
+		<div class="popup" id="popup">
+			<button class="arcade-btn3" onclick="closePopup() " >Close</button>
+			<div id="popup-content"></div>
+		</div>
+
+		<script src="homepage.js"></script>
 				<a href="doodleJump.html">
 					<button class="arcade-btn2">Play</button>
 				</a>

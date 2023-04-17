@@ -381,6 +381,11 @@ document.addEventListener("keydown", function (e) {
     document.querySelector(".pause").innerHTML = paused ? "Play" : "Pause";
   }
 
+  // prevent up or down arrow key from scrolling
+  if (e.which === 38 || e.which === 40) {
+    e.preventDefault();
+  }
+
   // clamp frogger position to stay on screen
   frogger.x = Math.min(Math.max(0, frogger.x), canvas.width - grid);
   frogger.y = Math.min(Math.max(grid, frogger.y), canvas.height - grid * 2);
