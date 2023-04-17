@@ -72,3 +72,16 @@ doodleTutorialPopup.addEventListener('mouseleave', () => {
     doodleTutorialPopup.style.display = 'none';
   });
 
+//pop up stats stuff
+const popupContainer = document.getElementById('popup-container');
+
+function showPopup() {
+  popupContainer.style.display = 'block';
+}
+
+function hidePopup() {
+  popupContainer.style.display = 'none';
+}
+
+document.addEventListener('mouseover', showPopup);
+document.addEventListener('mouseout', hidePopup);
