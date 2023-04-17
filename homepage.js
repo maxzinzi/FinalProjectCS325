@@ -73,9 +73,9 @@ doodleTutorialPopup.addEventListener('mouseleave', () => {
   });
 
 //pop up stats stuff
-highScoresContainer.style.display = 'none';
 const highScoresBtn = document.getElementById('frogger-scores-btn');
 const highScoresContainer = document.getElementById('frogger-scores-container');
+highScoresContainer.style.display = 'none';
 
 highScoresBtn.addEventListener('click', () => {
   highScoresContainer.style.display = 'block';
