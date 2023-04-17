@@ -181,7 +181,6 @@ function loop() {
 
   if (doodle.y > canvas.height) {
     fallSound.play(); // play losing sound effect
-    // reset the game after 2 seconds
     platforms = [{ x: canvas.width / 2 - platformWidth / 2, y: platformStart }];
     minPlatformSpace = 15;
     maxPlatformSpace = 20;

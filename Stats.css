@@ -1,0 +1,40 @@
+<style>
+	body {
+		background-color: #111;
+		color: #fff;
+		font-family: 'Press Start 2P', cursive;
+		margin: 0;
+		padding: 0;
+	}
+	
+	h1 {
+		font-size: 60px;
+		margin: 50px 0 0 50px;
+		text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF00FF, 0 0 70px #FF00FF, 0 0 80px #FF00FF, 0 0 100px #FF00FF;
+	}
+
+	.container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	.box {
+		margin: 20px;
+		padding: 20px;
+		background-color: #222;
+		border: 2px solid #FF00FF;
+		box-shadow: 0 0 10px #FF00FF;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.score {
+		font-size: 30px;
+		font-weight: bold;
+		color: #FF00FF;
+	}
+</style>
