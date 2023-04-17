@@ -305,5 +305,17 @@ h1 {
 	.home-button i {
 	  margin-right: 10px;
 }
-
+	#popup-container {
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  display: none;
+	  background-color: #222;
+	  color: #fff;
+	  padding: 20px;
+	  border: 2px solid #FF00FF;
+	  box-shadow: 0 0 10px #FF00FF;
+	  text-align: center;
+	}
 </style>
