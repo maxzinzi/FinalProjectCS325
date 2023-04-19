@@ -86,7 +86,7 @@ highScoresContainer.addEventListener('mouseleave', () => {
 
 const highScoresBtn2 = document.getElementById('frogger-scores-btn');
 const highScoresContainer2 = document.getElementById('frogger-scores-container');
-highScoresContainer.style.display = 'none';
+highScoresContainer2.style.display = 'none';
 
 highScoresBtn2.addEventListener('click', () => {
   highScoresContainer2.style.display = 'block';
