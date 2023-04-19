@@ -8,22 +8,36 @@ var score = 0;
 
 var paused = false;
 
+// mute sounds checkbox status from localStorage
+var game2Muted = localStorage.getItem("game2Muted") === "true";
+
 // sound effects
 let jumpSound = new Audio('sounds/frogger/jews_harp_boing-7111.mp3');
-jumpSound.volume = 0.5;
-jumpSound.playbackRate = 3;
-
 let splatSound = new Audio('sounds/frogger/cartoon-splat-6086.mp3');
-splatSound.volume = 0.25;
-splatSound.playbackRate = 1.5;
-
 let splashSound = new Audio('sounds/frogger/water-splash-46402.mp3');
-splashSound.volume = 0.25;
-splashSound.playbackRate = 1.5;
-
 let frogSound = new Audio('sounds/frogger/frog_quak-81741.mp3');
-frogSound.volume = 0.25;
-frogSound.playbackRate = 1.5;
+if (!game2Muted) {
+  jumpSound.volume = 0.5;
+  jumpSound.playbackRate = 3;
+  
+  splatSound.volume = 0.25;
+  splatSound.playbackRate = 1.5;
+  
+  splashSound.volume = 0.25;
+  splashSound.playbackRate = 1.5;
+  
+  frogSound.volume = 0.25;
+  frogSound.playbackRate = 1.5;
+}
+else {
+  jumpSound.volume = 0;
+  
+  splatSound.volume = 0;
+  
+  splashSound.volume = 0;
+  
+  frogSound.volume = 0;
+}
 
 // a simple sprite prototype function
 function Sprite(props) {

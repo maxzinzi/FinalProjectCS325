@@ -1,63 +1,7 @@
-
-<style>
-		body {
-			background-color: #111;
-			color: #fff;
-			font-family: 'Press Start 2P', cursive;
-			margin: 0;
-			padding: 0;
-			background-image: url('backgroundcarpet.jpeg');
-  			background-repeat: repeat; /* This will make the image repeat both horizontally and vertically */
+@font-face {
+    font-family: 'Emulogic';
+    src: url('Emulogic-zrEw.ttf');
 }
-		}
-		
-		h1 {
-			font-size: 60px;
-			margin: 50px 0 0 50px;
-			text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF00FF, 0 0 70px #FF00FF, 0 0 80px #FF00FF, 0 0 100px #FF00FF;
-		}
-		
-		form {
-			margin: 100px auto;
-			padding: 20px;
-			width: 400px;
-			background-color: #222;
-			border: 2px solid #FF00FF;
-			box-shadow: 0 0 20px #FF00FF;
-			border-radius: 10px;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-		}
-		
-		input[type=text], input[type=password] {
-			padding: 10px;
-			margin: 10px;
-			border-radius: 5px;
-			border: none;
-			background-color: #333;
-			color: #fff;
-			width: 100%;
-		}
-		
-		input[type=submit] {
-			padding: 10px;
-			margin: 10px;
-			border-radius: 5px;
-			border: none;
-			background-color: #FF00FF;
-			color: #111;
-			font-size: 20px;
-			cursor: pointer;
-			transition: all 0.2s ease-in-out;
-		}
-		
-		input[type=submit]:hover {
-			background-color: #111;
-			color: #FF00FF;
-			transform: scale(1.1);
-		}
 
 body {
 	background-color: #111;
@@ -65,12 +9,17 @@ body {
 	font-family: 'Press Start 2P', cursive;
 	margin: 0;
 	padding: 0;
+	background-image: url('backgroundcarpet.jpeg');
+	background-repeat: repeat; /* This will make the image repeat both horizontally and vertically */
 }
-
+		
 h1 {
-	font-size: 60px;
+	font-size: 80px !important;
+	color: black;
+	text-align: center;
 	margin: 50px 0 0 50px;
-	text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF00FF, 0 0 70px #FF00FF, 0 0 80px #FF00FF, 0 0 100px #FF00FF;
+	text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0000FF, 0 0 70px #0000FF, 0 0 80px #0000FF, 0 0 100px #0000FF;
+	font-family: 'Emulogic', cursive !important;
 }
 
 form {
@@ -113,20 +62,6 @@ input[type=submit]:hover {
 	background-color: #111;
 	color: #FF00FF;
 	transform: scale(1.1);
-}
-
-body {
-	background-color: #111;
-	color: #fff;
-	font-family: 'Press Start 2P', cursive;
-	margin: 0;
-	padding: 0;
-}
-
-h1 {
-	font-size: 60px;
-	margin: 50px 0 0 50px;
-	text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0000FF, 0 0 70px #0000FF, 0 0 80px #0000FF, 0 0 100px #0000FF;
 }
 
 .navbar {
@@ -190,6 +125,7 @@ h1 {
 .box h2 {
 	font-size: 24px;
 	margin: 10px;
+	font-family: 'Emulogic', cursive !important;
 }
 
 .box p {
@@ -288,6 +224,67 @@ h1 {
 	border-radius: 10px;
 	transition: all 0.2s ease-in-out;
 	overflow-y: auto
-  }
+}
 
-</style>
+.dropdown {
+	float: left;
+	margin-left: 30px;
+}
+
+.dropbtn {
+	background-color: #333;
+	color: #fff;
+	border: none;
+	font-size: 20px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+.dropbtn:hover {
+	background-color: #f0d84a;
+	color: #111;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #222;
+	border: 2px solid #f0d84a;
+	box-shadow: 0 0 20px #f0d84a;
+	min-width: 160px;
+	height: 140px;
+	z-index: 1;
+	border-radius: 10px;
+}
+
+.dropdown-content a, .dropdown-content label {
+	color: #ffffff;
+	padding: 5px 10px;
+	display: block;
+	transition: all 0.2s ease-in-out;
+	border-radius: 10px;
+	text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown-content input[type="checkbox"] {
+	margin-right: 10px;
+	width: 20px;
+	height: 20px;
+	background-color: rgb(255, 255, 255);
+	border-radius: 3px;
+	border: 2px solid black;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.dropdown-content input[type="checkbox"]:checked {
+	background-color: #f0d84a;
+	box-shadow: 0 0 10px #f0d84a;
+}
+

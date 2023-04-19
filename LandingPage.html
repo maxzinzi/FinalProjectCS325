@@ -4,12 +4,29 @@
 		<title>Smoke - Game Website</title>
 		<link rel="stylesheet" href="style.css">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<meta charset="UTF-8">
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5173851541571400"
      		crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<div class="navbar">
+			<div class="dropdown">
+				<button class="dropbtn"><i class="fa fa-cog"></i></button>
+				<div class="dropdown-content">
+					<b><label style="font-size: 17px;" for="dropdown-content">Settings</label></b>
+					<label for="mute-sounds">Mute Sounds:</label>
+					<div style="display: flex; align-items: center;">
+						<label for="mute-sounds-game1">Snake</label>
+						<input type="checkbox" id="mute-sounds-snake" name="mute-sounds">
+						<br>
+						<label for="mute-sounds-game2">Frogger</label>
+						<input type="checkbox" id="mute-sounds-frogger" name="mute-sounds">
+						<label for="mute-sounds-game3">Doodle Jump</label>
+						<input type="checkbox" id="mute-sounds-doodle" name="mute-sounds">
+					</div>
+				</div>
+			</div>
 			<a href="#">Home</a>
 			<a href="#">Games</a>
 			<a href="Stats.html">Stats</a>
@@ -19,7 +36,7 @@
 		<br>
 		<br>
 		<br>
-		<h1 class="w3-center">Smoke</h1>
+		<h1>Smoke</h1>
 		
 		<div class="container">
 			<div class="box" id="game1">
