@@ -1,43 +1,33 @@
+import { setFroggerHighScore, getFroggerHighScore } from "./dbController.js";
 const canvas = document.getElementById("game");
 const context = canvas.getContext("2d");
 var scoreDisplayElem = document.getElementById("scoreboard");
-
+var username = sessionStorage.getItem("username");
 const grid = 48;
 const gridGap = 10;
 var score = 0;
-
+var highScore;
 var paused = false;
 
 // mute sounds checkbox status from localStorage
 var game2Muted = localStorage.getItem("game2Muted") === "true";
 
 // sound effects
-let jumpSound = new Audio('sounds/frogger/jews_harp_boing-7111.mp3');
-let splatSound = new Audio('sounds/frogger/cartoon-splat-6086.mp3');
-let splashSound = new Audio('sounds/frogger/water-splash-46402.mp3');
-let frogSound = new Audio('sounds/frogger/frog_quak-81741.mp3');
-if (!game2Muted) {
-  jumpSound.volume = 0.5;
-  jumpSound.playbackRate = 3;
-  
-  splatSound.volume = 0.25;
-  splatSound.playbackRate = 1.5;
-  
-  splashSound.volume = 0.25;
-  splashSound.playbackRate = 1.5;
-  
-  frogSound.volume = 0.25;
-  frogSound.playbackRate = 1.5;
-}
-else {
-  jumpSound.volume = 0;
-  
-  splatSound.volume = 0;
-  
-  splashSound.volume = 0;
-  
-  frogSound.volume = 0;
-}
+let jumpSound = new Audio("sounds/frogger/jews_harp_boing-7111.mp3");
+jumpSound.volume = 0.5;
+jumpSound.playbackRate = 3;
+
+let splatSound = new Audio("sounds/frogger/cartoon-splat-6086.mp3");
+splatSound.volume = 0.25;
+splatSound.playbackRate = 1.5;
+
+let splashSound = new Audio("sounds/frogger/water-splash-46402.mp3");
+splashSound.volume = 0.25;
+splashSound.playbackRate = 1.5;
+
+let frogSound = new Audio("sounds/frogger/frog_quak-81741.mp3");
+frogSound.volume = 0.25;
+frogSound.playbackRate = 1.5;
 
 // a simple sprite prototype function
 function Sprite(props) {
@@ -86,7 +76,7 @@ const patterns = [
   // log
   {
     spacing: [2], // how many grid spaces between each obstacle
-    color: "#c55843", // color of the obstacle
+    color: "#de0004", // color of the obstacle
     size: grid * 4, // width (rect) / diameter (circle) of the obstacle
     shape: "rect", // shape of the obstacle (rect or circle)
     speed: 0.75, // how fast the obstacle moves and which direction
@@ -157,7 +147,6 @@ const patterns = [
     shape: "rect",
     speed: -0.75,
   },
-
   // bulldozer
   {
     spacing: [3, 3, 7],
@@ -221,6 +210,23 @@ for (let i = 0; i < patterns.length; i++) {
     x += pattern.size + spacing[index] * grid;
     index = (index + 1) % spacing.length;
   }
+}
+
+async function getScore() {
+  highScore = await getFroggerHighScore(username);
+  requestAnimationFrame(loop);
+}
+
+async function setNewScore(score) {
+  highScore = await setFroggerHighScore(username, score);
+}
+
+function resetGame() {
+  frogger.x = grid * 6;
+  frogger.y = grid * 13;
+  score = 0;
+  scoredFroggers = [];
+  scoreDisplayElem.innerHTML = score;
 }
 
 // game loop
@@ -325,9 +331,9 @@ function loop() {
       // reset frogger if got hit by car
       if (froggerRow > rows.length / 2) {
         splatSound.play();
-        frogger.x = grid * 6;
-        frogger.y = grid * 13;
+        resetGame();
       }
+
       // move frogger along with obstacle
       else {
         frogger.speed = sprite.speed;
@@ -354,16 +360,20 @@ function loop() {
           x: col * grid,
           y: frogger.y + 5,
         })
-        );
-        if (score < 1) score++;
-        scoreDisplayElem.innerHTML = score++;
+      );
+      if (score < 1) score++;
+      if (score > highScore) {
+        setNewScore(score);
+        highScore = score;
       }
+      scoreDisplayElem.innerHTML = score++;
+    }
 
+    // reset frogger if not on obstacle in river
     // reset frogger if not on obstacle in river
     if (froggerRow < rows.length / 2 - 1) {
       splashSound.play();
-      frogger.x = grid * 6;
-      frogger.y = grid * 13;
+      resetGame();
     }
   }
 }
@@ -410,6 +420,5 @@ function pause() {
   document.querySelector(".pause").innerHTML = paused ? "Play" : "Pause";
 }
 
-
 // start the game
-requestAnimationFrame(loop);
+getScore();

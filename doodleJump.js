@@ -1,9 +1,12 @@
+import {setDJHighScore, getDJHighScore} from './dbController.js';
+
 const canvas = document.getElementById("game");
 const context = canvas.getContext("2d");
-
+var username = sessionStorage.getItem("username");
 var paused = false;
 var scoreDisplayElem = document.querySelector(".scoreboard");
 var score = 0;
+var highScore;
 
 // width and height of each platform and where platforms start
 const platformWidth = 65;
@@ -16,10 +19,14 @@ const drag = 0.3;
 const bounceVelocity = -12.5;
 
 // sound effects
-let jumpSound = new Audio('sounds/doodle/mixkit-quick-jump-arcade-game-239.wav');
+let jumpSound = new Audio(
+  "sounds/doodle/mixkit-quick-jump-arcade-game-239.wav"
+);
 jumpSound.volume = 0.5;
 
-let fallSound = new Audio('sounds/doodle/mixkit-player-losing-or-failing-2042.wav');
+let fallSound = new Audio(
+  "sounds/doodle/mixkit-player-losing-or-failing-2042.wav"
+);
 fallSound.volume = 0.25;
 fallSound.playbackRate = 2.0;
 
@@ -83,6 +90,15 @@ let playerDir = 0;
 let keydown = false;
 let prevDoodleY = doodle.y;
 
+async function getScore() {
+  highScore = await getDJHighScore(username);
+  requestAnimationFrame(loop);
+}
+
+async function setNewScore(score) {
+  highScore = await setDJHighScore(username, score);
+}
+
 // game loop
 function loop() {
   requestAnimationFrame(loop);
@@ -115,7 +131,6 @@ function loop() {
       // cap max space
       maxPlatformSpace = Math.min(maxPlatformSpace, canvas.height / 2);
     }
-    
   } else {
     doodle.y += doodle.dy;
   }
@@ -149,7 +164,6 @@ function loop() {
     doodle.x = -doodle.width;
   }
 
-
   // draw platforms
   context.fillStyle = "green";
   platforms.forEach(function (platform) {
@@ -175,7 +189,6 @@ function loop() {
 
       score++;
       scoreDisplayElem.innerHTML = score;
-
     }
   });
 
@@ -188,8 +201,12 @@ function loop() {
     doodle.y = platformStart - 60;
     doodle.dx = 0;
     doodle.dy = 0;
-    score = 0;
     scoreDisplayElem.innerHTML = score;
+    if (score > highScore) {
+      highScore = score;
+      setNewScore(score);
+    }
+    score = 0;
   }
 
   // draw doodle
@@ -203,7 +220,6 @@ function loop() {
     return platform.y < canvas.height;
   });
 }
-
 
 // listen to keyboard events to move doodle
 document.addEventListener("keydown", function (e) {
@@ -229,6 +245,8 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+
+
 function pause() {
   paused = !paused;
   document.querySelector(".pause").innerHTML = paused ? "Play" : "Pause";
@@ -239,4 +257,4 @@ document.addEventListener("keyup", function (e) {
 });
 
 // start the game
-requestAnimationFrame(loop);
+getScore();

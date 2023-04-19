@@ -1,6 +1,8 @@
+import { setSnakeHighScore, getSnakeHighScore} from './dbController.js';
+var username = sessionStorage.getItem("username");
 var canvas = document.getElementById("game");
 var context = canvas.getContext("2d");
-
+var highScore;
 var paused = false;
 var scoreDisplayElem = document.querySelector(".scoreboard");
 var score = 0;
@@ -26,7 +28,6 @@ else {
   
   gameOverSound.volume = 0.0;
 }
-
 
 // the canvas width & height, snake x & y, and the apple x & y, all need to be a multiples of the grid size in order for collision detection to work
 // (e.g. 16 * 25 = 400)
@@ -58,10 +59,19 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+async function getScore() {
+  highScore = await getSnakeHighScore(username);
+  requestAnimationFrame(loop);
+}
+
+async function setNewScore(score) {
+  highScore = await setSnakeHighScore(username, score);
+}
+
 // game loop
 function loop() {
   requestAnimationFrame(loop);
-
+  
   // slow game loop to 15 fps instead of 60 (60/15 = 4)
   if (++count < 4) {
     return;
@@ -112,7 +122,7 @@ function loop() {
       eatSound.play();
       snake.maxCells++;
       scoreDisplayElem.innerHTML = ++score;
-
+    
       // canvas is 400x400 which is 25x25 grids
       apple.x = getRandomInt(0, 25) * grid;
       apple.y = getRandomInt(0, 25) * grid;
@@ -133,6 +143,11 @@ function loop() {
         scoreDisplayElem.innerHTML = 0;
         apple.x = getRandomInt(0, 25) * grid;
         apple.y = getRandomInt(0, 25) * grid;
+        if (score > highScore) {
+          highScore = score;
+          setNewScore(score);
+        }
+        score = 0;
       }
     }
   });
@@ -176,12 +191,12 @@ document.addEventListener("keydown", function (e) {
 });
 
 
-
-
 function pause() {
   paused = !paused;
   document.querySelector(".pause").innerHTML = paused ? "Play" : "Pause";
 }
 
 // start the game
-requestAnimationFrame(loop);
+getScore();
+
+
