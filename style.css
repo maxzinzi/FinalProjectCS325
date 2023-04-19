@@ -165,6 +165,21 @@ input[type=submit]:hover {
     display: none;
 }
 
+.arcade-popup2 {
+    background-color: #f0d84a;
+    color: #000000;
+    border: 2px solid #000000;
+    font-size: 18px;
+    font-weight: bold;
+	z-index: 999;
+  	width: 400px;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
 .arcade-btn2 {
     background-color: #2ecc71;
     color: #000000;
@@ -225,6 +240,18 @@ input[type=submit]:hover {
 	transition: all 0.2s ease-in-out;
 	overflow-y: auto
 }
+	.home-button {
+	  display: inline-flex;
+	  align-items: center;
+	  padding: 10px 20px;
+	  font-size: 16px;
+	  font-weight: bold;
+	  text-decoration: none;
+	  color: #fff;
+	  background-color: #007bff;
+	  border-radius: 5px;
+	  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	}
 
 .dropdown {
 	float: left;
@@ -288,3 +315,31 @@ input[type=submit]:hover {
 	box-shadow: 0 0 10px #f0d84a;
 }
 
+.home-button {
+	display: inline-flex;
+	align-items: center;
+	padding: 10px 20px;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #fff;
+	background-color: #007bff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.home-button i {
+	margin-right: 10px;
+}
+.frogger-scores-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #222;
+	color: #fff;
+	padding: 10px 20px;
+	border: 2px solid #FF00FF;
+	box-shadow: 0 0 10px #FF00FF;
+	display: none;
+}

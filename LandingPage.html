@@ -28,8 +28,6 @@
 				</div>
 			</div>
 			<a href="#">Home</a>
-			<a href="#">Games</a>
-			<a href="Stats.html">Stats</a>
 			<a href="index.html">Logout</a>
 		</div>
 		
@@ -52,8 +50,15 @@
 					<p>Don't run into your own body!</p>
 					<p><small>(Click to Exit)</small></p>
 				</div>
+				<div id="frogger-scores-container" class="box arcade-popup2">
+				<h2>Frogger High Score</h2>
+				<p>Your highest score in Frogger is: <span id="froggerScore" class="score">350</span></p>
+				</div>
 				<button class="arcade-btn2" onclick="openPopup('game1', 'snake.html')">Play</button>
+				<button id=frogger-scores-btn class="arcade-btn2" onclick="updateFroggerScore()" style="background-color:purple">Stats</button>
 			</div>
+			
+			
 			
 			<div class="box" id="game2">
 				<h2>Frogger</h2>
@@ -70,6 +75,7 @@
 					<p><small>(Click to Exit)</small></p>
 				</div>
 				<button class="arcade-btn2" onclick="openPopup('game1', 'frogger.html')">Play</button>
+				<button class="arcade-btn2" onclick="" style="background-color:purple">Stats</button>
 			</div>
 
 			<div class="box" id="game3">
@@ -87,6 +93,7 @@
 					<p><small>(Click to Exit)</small></p>
 				</div>
 				<button class="arcade-btn2" onclick="openPopup('game1', 'doodleJump.html')">Play</button>
+				<button class="arcade-btn2" onclick="" style="background-color:purple">Stats</button>
 			</div>
 		</div>
 		
@@ -96,6 +103,7 @@
 		</div>
 
 		<script src="homepage.js"></script>
+		<script src="dbController.js"></script>
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5173851541571400"
 		     crossorigin="anonymous"></script>
 		<!-- LandingPage -->
@@ -107,6 +115,17 @@
 		     data-full-width-responsive="true"></ins>
 		<script>
 		     (adsbygoogle = window.adsbygoogle || []).push({});
+			
+			function updateFroggerScore() {
+		  // Get username from session storage
+		  const username = sessionStorage.getItem("username");
+
+		  // Get high score for user
+		  const highScore = getFroggerHighScore(username);
+
+		  // Update span element with high score value
+		  document.getElementById("froggerScore").textContent = highScore;
+		}
 		</script>
 	</body>
 </html>

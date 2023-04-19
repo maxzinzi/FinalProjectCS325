@@ -1,10 +1,8 @@
-
 body {
-	background-color: #111;
-	color: #fff;
-	font-family: 'Press Start 2P', cursive;
+	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
+	background-image: url('backgroundcarpet.jpeg');
 }
 
 h1 {
@@ -13,12 +11,12 @@ h1 {
 	text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF00FF, 0 0 70px #FF00FF, 0 0 80px #FF00FF, 0 0 100px #FF00FF;
 }
 
-.container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-}
+		.container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+		}
 
 .box {
 	margin: 20px;
@@ -37,4 +35,19 @@ h1 {
 	font-weight: bold;
 	color: #FF00FF;
 }
+.home-button {
+	display: inline-flex;
+	align-items: center;
+	padding: 10px 20px;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #fff;
+	background-color: #007bff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
 
+.home-button i {
+	margin-right: 10px;
+}
