@@ -9,6 +9,24 @@ highScoresContainer.style.display = 'none';
 highScoresContainer2.style.display = 'none';
 highScoresContainer3.style.display = 'none';
 
+highScoresBtn.addEventListener('click', () => {
+  highScoresContainer.style.display = 'block';
+});
+highScoresContainer.addEventListener('mouseleave', () => {
+  highScoresContainer.style.display = 'none';
+});
+highScoresBtn2.addEventListener('click', () => {
+  highScoresContainer2.style.display = 'block';
+});
+highScoresContainer2.addEventListener('mouseleave', () => {
+  highScoresContainer2.style.display = 'none';
+});
+highScoresBtn3.addEventListener('click', () => {
+  highScoresContainer3.style.display = 'block';
+});
+highScoresContainer3.addEventListener('mouseleave', () => {
+  highScoresContainer3.style.display = 'none';
+});
 
 // game pop ups
 function openPopup(gameId, gameHtml) {
