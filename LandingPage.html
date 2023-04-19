@@ -50,12 +50,12 @@
 					<p>Don't run into your own body!</p>
 					<p><small>(Click to Exit)</small></p>
 				</div>
-				<div id="frogger-scores-container" class="box arcade-popup2">
-				<h2>Frogger High Score</h2>
-				<p>Your highest score in Frogger is: <span id="froggerScore" class="score">350</span></p>
+				<div id="snake-scores-container" class="box" style="position: absolute; height: 200px;">
+				<h2>Snake High Score</h2>
+				<p>Your highest score in Snake is: <span id="snakeScore" class="score">350</span></p>
 				</div>
 				<button class="arcade-btn2" onclick="openPopup('game1', 'snake.html')">Play</button>
-				<button id=frogger-scores-btn class="arcade-btn2" onclick="updateFroggerScore()" style="background-color:purple">Stats</button>
+				<button id=snake-scores-btn class="arcade-btn2" onclick="updateSnakeScore()" style="background-color:purple">Stats</button>
 			</div>
 			
 			
@@ -74,8 +74,12 @@
 					<p>Make it across the road and river to earn points.</p>
 					<p><small>(Click to Exit)</small></p>
 				</div>
+				<div id="frogger-scores-container" class="box" style="position: absolute; height: 200px;">
+				<h2>Frogger High Score</h2>
+				<p>Your highest score in Frogger is: <span id="froggerScore" class="score">350</span></p>
+				</div>
 				<button class="arcade-btn2" onclick="openPopup('game1', 'frogger.html')">Play</button>
-				<button class="arcade-btn2" onclick="" style="background-color:purple">Stats</button>
+				<button id=frogger-scores-btn class="arcade-btn2" onclick="updateFroggerScore()" style="background-color:purple">Stats</button>
 			</div>
 
 			<div class="box" id="game3">
@@ -92,8 +96,12 @@
 					<p>How high can you go?</p>
 					<p><small>(Click to Exit)</small></p>
 				</div>
+				<div id="doodle-scores-container" class="box" style="position: absolute; height: 200px;">
+				<h2>Doodle Jump High Score</h2>
+				<p>Your highest score in Doodle Jump is: <span id="doodleScore" class="score">350</span></p>
+				</div>
 				<button class="arcade-btn2" onclick="openPopup('game1', 'doodleJump.html')">Play</button>
-				<button class="arcade-btn2" onclick="" style="background-color:purple">Stats</button>
+				<button id=doodle-scores-btn class="arcade-btn2" onclick="updateDoodleScore()" style="background-color:purple">Stats</button>
 			</div>
 		</div>
 		
@@ -116,7 +124,7 @@
 		<script>
 		     (adsbygoogle = window.adsbygoogle || []).push({});
 			
-			function updateFroggerScore() {
+			function updateSnakeScore() {
 		  // Get username from session storage
 		  const username = sessionStorage.getItem("username");
 
@@ -124,7 +132,7 @@
 		  const highScore = getFroggerHighScore(username);
 
 		  // Update span element with high score value
-		  document.getElementById("froggerScore").textContent = highScore;
+		  document.getElementById("snakeScore").textContent = highScore;
 		}
 		</script>
 	</body>
