@@ -122,15 +122,4 @@ doodleTutorialPopup.addEventListener('mouseleave', () => {
     doodleTutorialPopup.style.display = 'none';
   });
 
-//pop up stats stuff
-const highScoresBtn = document.getElementById('frogger-scores-btn');
-const highScoresContainer = document.getElementById('frogger-scores-container');
-highScoresContainer.style.display = 'none';
-
-highScoresBtn.addEventListener('click', () => {
-  highScoresContainer.style.display = 'block';
-});
-highScoresContainer.addEventListener('mouseleave', () => {
-  highScoresContainer.style.display = 'none';
-});
 
