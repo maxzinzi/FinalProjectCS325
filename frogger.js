@@ -9,9 +9,6 @@ var score = 0;
 var highScore;
 var paused = false;
 
-// mute sounds checkbox status from localStorage
-var game2Muted = localStorage.getItem("game2Muted") === "true";
-
 // sound effects
 let jumpSound = new Audio("sounds/frogger/jews_harp_boing-7111.mp3");
 jumpSound.volume = 0.5;
@@ -28,6 +25,36 @@ splashSound.playbackRate = 1.5;
 let frogSound = new Audio("sounds/frogger/frog_quak-81741.mp3");
 frogSound.volume = 0.25;
 frogSound.playbackRate = 1.5;
+
+// mute sounds checkbox status from localStorage
+var game2Muted = document.getElementById("mute-sounds-frogger")
+
+var isMuted = localStorage.getItem("mute-sounds-frogger") === "true";
+game2Muted.checked = isMuted;
+
+updateSounds(isMuted);
+
+game2Muted.addEventListener("change", function() {
+  var isMuted = game2Muted.checked;
+  updateSounds(isMuted);
+  localStorage.setItem("mute-sounds-frogger", isMuted);
+});
+
+function updateSounds(isMuted) {
+  if (isMuted) {
+    jumpSound.volume = 0;
+    splatSound.volume = 0;
+    splashSound.volume = 0;
+    frogSound.volume = 0;
+  }
+  else {
+    jumpSound.volume = 0.5;
+    splatSound.volume = 0.25;
+    splashSound.volume = 0.25;
+    frogSound.volume = 0.25;
+  }
+}
+
 
 // a simple sprite prototype function
 function Sprite(props) {
@@ -415,10 +442,13 @@ document.addEventListener("keydown", function (e) {
   frogger.y = Math.min(Math.max(grid, frogger.y), canvas.height - grid * 2);
 });
 
-function pause() {
+const pauseButton = document.getElementById("pause");
+
+pauseButton.addEventListener("click", function() {
   paused = !paused;
   document.querySelector(".pause").innerHTML = paused ? "Play" : "Pause";
-}
+});
+
 
 // start the game
 getScore();

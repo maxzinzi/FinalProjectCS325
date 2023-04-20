@@ -89,7 +89,7 @@ input[type=submit]:hover {
 .navbar a:hover {
 	background-color: #FF00FF;
 	color: #111;
-	transform: scale(1.2);
+	
 }
 
 .container {
@@ -107,7 +107,7 @@ input[type=submit]:hover {
 	padding: 20px;
 	margin: 20px;
 	width: 300px;
-	height: 350px;
+	height: 365px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -152,7 +152,8 @@ input[type=submit]:hover {
 .arcade-popup {
     background-color: #f0d84a;
     color: #000000;
-    border: 2px solid #000000;
+    border: 5px solid #000000;
+	box-shadow: 0 0 20px #f0d84a;
     font-size: 18px;
     font-weight: bold;
 	z-index: 999;
@@ -163,6 +164,7 @@ input[type=submit]:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
+	border-radius: 10px;
 }
 
 .arcade-popup2 {
@@ -189,6 +191,7 @@ input[type=submit]:hover {
     padding: 10px 20px;
     border-radius: 10px;
     cursor: pointer;
+	margin-top: 5px;
 }
 
 .arcade-btn2:hover {
@@ -207,10 +210,27 @@ input[type=submit]:hover {
     cursor: pointer;
 	position: absolute;
 	top: 10px;
-
 }
 
 .arcade-btn3:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.arcade-btn5 {
+    background-color: purple;
+    color: #000000;
+    border: 2px solid #000000;
+	font-size: 12px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+	margin-top: 10px;
+	
+}
+
+.arcade-btn5:hover {
     background-color: #000000;
     color: #ffffff;
 }
@@ -240,18 +260,19 @@ input[type=submit]:hover {
 	transition: all 0.2s ease-in-out;
 	overflow-y: auto
 }
-	.home-button {
-	  display: inline-flex;
-	  align-items: center;
-	  padding: 10px 20px;
-	  font-size: 16px;
-	  font-weight: bold;
-	  text-decoration: none;
-	  color: #fff;
-	  background-color: #007bff;
-	  border-radius: 5px;
-	  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-	}
+
+.home-button {
+	display: inline-flex;
+	align-items: center;
+	padding: 10px 20px;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #fff;
+	background-color: #007bff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
 
 .dropdown {
 	float: left;
@@ -279,7 +300,7 @@ input[type=submit]:hover {
 	border: 2px solid #f0d84a;
 	box-shadow: 0 0 20px #f0d84a;
 	min-width: 160px;
-	height: 140px;
+	height: 110px;
 	z-index: 1;
 	border-radius: 10px;
 }
@@ -330,16 +351,4 @@ input[type=submit]:hover {
 
 .home-button i {
 	margin-right: 10px;
-}
-.frogger-scores-container {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: #222;
-	color: #fff;
-	padding: 10px 20px;
-	border: 2px solid #FF00FF;
-	box-shadow: 0 0 10px #FF00FF;
-	display: none;
 }

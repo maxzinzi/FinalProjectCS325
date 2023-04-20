@@ -51,24 +51,23 @@ function closePopup() {
 }
 
 // sound muting for each game
-var  game1MuteCheckbox = document.getElementById("mute-sounds-game1");
-var  game2MuteCheckbox = document.getElementById("mute-sounds-game2");
-var  game3MuteCheckbox = document.getElementById("mute-sounds-game3");
+// var  game1MuteCheckbox = document.getElementById("mute-sounds-game1");
+// var  game2MuteCheckbox = document.getElementById("mute-sounds-game2");
+// var  game3MuteCheckbox = document.getElementById("mute-sounds-game3");
 
-game1MuteCheckbox.checked = localStorage.getItem("game1Muted") === "true";
-game2MuteCheckbox.checked = localStorage.getItem("game2Muted") === "true";
-game3MuteCheckbox.checked = localStorage.getItem("game3Muted") === "true";
-game1MuteCheckbox.addEventListener("change", function() {
-  localStorage.setItem("game1Muted", game1MuteCheckbox.checked);
-  game1Muted = game1MuteCheckbox.checked;
-});
-game1MuteCheckbox.addEventListener("change", function() {
-  localStorage.setItem("game2Muted", game2MuteCheckbox.checked);
-});
-game1MuteCheckbox.addEventListener("change", function() {
-  localStorage.setItem("game3Muted", game3MuteCheckbox.checked);
-});
-
+// game1MuteCheckbox.checked = localStorage.getItem("game1Muted") === "true";
+// game2MuteCheckbox.checked = localStorage.getItem("game2Muted") === "true";
+// game3MuteCheckbox.checked = localStorage.getItem("game3Muted") === "true";
+// game1MuteCheckbox.addEventListener("change", function() {
+//   localStorage.setItem("game1Muted", game1MuteCheckbox.checked);
+//   game1Muted = game1MuteCheckbox.checked;
+// });
+// game1MuteCheckbox.addEventListener("change", function() {
+//   localStorage.setItem("game2Muted", game2MuteCheckbox.checked);
+// });
+// game1MuteCheckbox.addEventListener("change", function() {
+//   localStorage.setItem("game3Muted", game3MuteCheckbox.checked);
+// });
 
 
 // Snake

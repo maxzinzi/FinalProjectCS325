@@ -4,7 +4,6 @@
   <title>Basic Frogger HTML Game</title>
   <link rel="stylesheet" href="frogger.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
   <meta charset="UTF-8">
 </head>
 <body>
@@ -18,7 +17,19 @@
             <canvas width="624" height="724" id="game"></canvas>
         </div>
     </div>
-  <button class="pause" onmousedown="pause()" class="pause">Pause</button>
+  <div class="btn-container">
+    <button class="arcade-btn4" id="pause">Pause</button>
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa fa-cog"></i></button>
+      <div class="dropdown-content">
+          <label for="dropdown-content" style="font-size: 18px;"><b><u>Settings</u></b></label>
+          <div style="align-items: center;">
+              <label for="mute-sounds-frogger">Mute Sounds:</label>
+              <input type="checkbox" id="mute-sounds-frogger" name="mute-sounds">
+          </div>
+      </div>
+    </div>
+  </div>
   <script type="module" src="./frogger.js"></script>
 </body>
 </html>

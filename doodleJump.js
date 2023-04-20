@@ -20,7 +20,7 @@ const bounceVelocity = -12.5;
 
 // sound effects
 let jumpSound = new Audio(
-  "sounds/doodle/mixkit-quick-jump-arcade-game-239.wav"
+"sounds/doodle/mixkit-quick-jump-arcade-game-239.wav"
 );
 jumpSound.volume = 0.5;
 
@@ -29,6 +29,31 @@ let fallSound = new Audio(
 );
 fallSound.volume = 0.25;
 fallSound.playbackRate = 2.0;
+
+var game3Muted = document.getElementById("mute-sounds-doodle")
+
+var isMuted = localStorage.getItem("mute-sounds-doodle") === "true";
+game3Muted.checked = isMuted;
+
+updateSounds(isMuted);
+
+game3Muted.addEventListener("change", function() {
+  var isMuted = game3Muted.checked;
+  updateSounds(isMuted);
+  localStorage.setItem("mute-sounds-doodle", isMuted);
+});
+
+function updateSounds(isMuted) {
+  if (isMuted) {
+    jumpSound.volume = 0;
+    fallSound.volume = 0;
+  }
+  else {
+    jumpSound.volume = 0.5;
+    fallSound.volume = 0.25;
+  }
+}
+
 
 // minimum and maximum vertical space between each platform
 let minPlatformSpace = 15;
@@ -244,13 +269,12 @@ document.addEventListener("keydown", function (e) {
     e.preventDefault();
   }
 });
+const pauseButton = document.getElementById("pause");
 
-
-
-function pause() {
+pauseButton.addEventListener("click", function() {
   paused = !paused;
   document.querySelector(".pause").innerHTML = paused ? "Play" : "Pause";
-}
+});
 
 document.addEventListener("keyup", function (e) {
   keydown = false;

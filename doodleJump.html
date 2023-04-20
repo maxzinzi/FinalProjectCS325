@@ -3,20 +3,31 @@
 <head>
   <title>Basic Doodle Jump HTML Game</title>
   <link rel="stylesheet" href="doodleJump.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta charset="UTF-8">
 </head>
-<body>
-   <div class="grid-container">
-        <div>
-        <p>
-            <h1 class="scoreboard" style="color: black">0</h1>   
-        </p>
+    <body>
+        <div class="grid-container">
+            <div>
+                <p>
+                    <h1 class="scoreboard" style="color: black">0</h1>   
+                </p>
+            </div>
+            <div> 
+                <canvas width="375" height="667" id="game"></canvas>
+            </div>
         </div>
-        <div> 
-            <canvas width="375" height="667" id="game"></canvas>
+        <button class="arcade-btn4" id="pause" >Pause</button>
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fa fa-cog"></i></button>
+            <div class="dropdown-content">
+                <label for="dropdown-content" style="font-size: 18px;"><b><u>Settings</u></b></label>
+                <div style="display: flex; align-items: center;">
+                    <label for="mute-sounds-doodle">Mute Sounds:</label>
+                    <input type="checkbox" id="mute-sounds-doodle" name="mute-sounds">
+                </div>
+            </div>
         </div>
-    </div>
-<button class="pause" onmousedown="pause()" class="pause">Pause</button>
-<script type="module" src="./doodleJump.js"></script>
-</body>
+        <script type="module" src="./doodleJump.js"></script>
+    </body>
 </html>

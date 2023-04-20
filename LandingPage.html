@@ -15,20 +15,18 @@
 				<button class="dropbtn"><i class="fa fa-cog"></i></button>
 				<div class="dropdown-content">
 					<b><label style="font-size: 17px;" for="dropdown-content">Settings</label></b>
-					<label for="mute-sounds">Mute Sounds:</label>
 					<div style="display: flex; align-items: center;">
-						<label for="mute-sounds-game1">Snake</label>
-						<input type="checkbox" id="mute-sounds-snake" name="mute-sounds">
-						<br>
-						<label for="mute-sounds-game2">Frogger</label>
-						<input type="checkbox" id="mute-sounds-frogger" name="mute-sounds">
-						<label for="mute-sounds-game3">Doodle Jump</label>
-						<input type="checkbox" id="mute-sounds-doodle" name="mute-sounds">
+						<label for="game1">Snake</label>
+						<label for="game2">Frogger</label>
+						<label for="game3">Doodle Jump</label>
 					</div>
 				</div>
 			</div>
-			<a href="#">Home</a>
-			<a href="index.html">Logout</a>
+			<a href="LandingPage.html">Home</a>
+			<a href="#">Profile</a>
+			<a href="#">Gallery</a>
+			<a href="#">Help</a>
+			<a href="index.html" >Logout</a>
 		</div>
 		
 		<br>
@@ -50,12 +48,12 @@
 					<p>Don't run into your own body!</p>
 					<p><small>(Click to Exit)</small></p>
 				</div>
-				<div id="snake-scores-container" class="box" style="position: absolute; height: 200px;">
-				<h2>Snake High Score</h2>
-				<p>Your highest score in Snake is: <span id="snakeScore" class="score">350</span></p>
+				<div id="snake-scores-container" class="box" style="position: absolute; height: 250px; background-color: purple;">
+					<h2>Snake High Score</h2>
+					<p>Your highest score in Snake is: <span id="snakeScore" class="score">23</span></p>
 				</div>
 				<button class="arcade-btn2" onclick="openPopup('game1', 'snake.html')">Play</button>
-				<button id="snake-scores-btn" class="arcade-btn2" onclick="updateSnakeScore()" style="background-color:purple">Stats</button>
+				<button id="snake-scores-btn"  onclick="updateSnakeScore()" class="arcade-btn5">Stats</button>
 			</div>
 			
 			
@@ -74,12 +72,12 @@
 					<p>Make it across the road and river to earn points.</p>
 					<p><small>(Click to Exit)</small></p>
 				</div>
-				<div id="frogger-scores-container" class="box" style="position: absolute; height: 200px;">
+				<div id="frogger-scores-container" class="box" style="position: absolute; height: 250px; background-color: purple;">
 				<h2>Frogger High Score</h2>
-				<p>Your highest score in Frogger is: <span id="froggerScore" class="score">350</span></p>
+				<p>Your highest score in Frogger is: <span id="froggerScore" class="score">45</span></p>
 				</div>
 				<button class="arcade-btn2" onclick="openPopup('game1', 'frogger.html')">Play</button>
-				<button id=frogger-scores-btn class="arcade-btn2" onclick="" style="background-color:purple">Stats</button>
+				<button id="frogger-scores-btn" onclick="" class="arcade-btn5">Stats</button>
 			</div>
 
 			<div class="box" id="game3">
@@ -96,12 +94,12 @@
 					<p>How high can you go?</p>
 					<p><small>(Click to Exit)</small></p>
 				</div>
-				<div id="doodle-scores-container" class="box" style="position: absolute; height: 200px;">
+				<div id="doodle-scores-container" class="box" style="position: absolute; height: 250px; background-color: purple;">
 				<h2>Doodle Jump High Score</h2>
 				<p>Your highest score in Doodle Jump is: <span id="doodleScore" class="score">350</span></p>
 				</div>
 				<button class="arcade-btn2" onclick="openPopup('game1', 'doodleJump.html')">Play</button>
-				<button id=doodle-scores-btn class="arcade-btn2" onclick="" style="background-color:purple">Stats</button>
+				<button id="doodle-scores-btn" onclick="" class="arcade-btn5">Stats</button>
 			</div>
 		</div>
 		

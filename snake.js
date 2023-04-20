@@ -7,26 +7,37 @@ var paused = false;
 var scoreDisplayElem = document.querySelector(".scoreboard");
 var score = 0;
 
-// read query parameter
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const game1Muted = urlParams.get('mute') === 'true';
-
 // sound effects
 let eatSound = new Audio("sounds/snake/apple-munch-40169.mp3");
-let gameOverSound = new Audio("sounds/snake/videogame-death-sound-43894.mp3");
+eatSound.volume = 0.5;
+eatSound.playbackRate = 2.5;
 
-if (!game1Muted) {
-  eatSound.volume = 0.5;
-  eatSound.playbackRate = 2.5;
-  
-  gameOverSound.volume = 0.25;
-  gameOverSound.playbackRate = 2;
-}
-else {
-  eatSound.volume = 0.0;
-  
-  gameOverSound.volume = 0.0;
+let gameOverSound = new Audio("sounds/snake/videogame-death-sound-43894.mp3");
+gameOverSound.volume = 0.5;
+gameOverSound.playbackRate = 2;
+
+var game1Muted = document.getElementById("mute-sounds-snake");
+
+var isMuted = localStorage.getItem("mute-sounds-snake") === "true";
+game1Muted.checked = isMuted;
+
+updateSounds(isMuted);
+
+game1Muted.addEventListener("change", function() {
+  var isMuted = game1Muted.checked;
+  updateSounds(isMuted);
+  localStorage.setItem("mute-sounds-snake", isMuted);
+});
+
+function updateSounds(isMuted) {
+  if (game1Muted.checked) {
+    eatSound.volume = 0;
+    gameOverSound.volume = 0;
+  }
+  else {
+    eatSound.volume = 0.5;
+    gameOverSound.volume = 0.5;
+  }
 }
 
 // the canvas width & height, snake x & y, and the apple x & y, all need to be a multiples of the grid size in order for collision detection to work
@@ -191,10 +202,12 @@ document.addEventListener("keydown", function (e) {
 });
 
 
-function pause() {
+const pauseButton = document.getElementById("pause");
+
+pauseButton.addEventListener("click", function() {
   paused = !paused;
   document.querySelector(".pause").innerHTML = paused ? "Play" : "Pause";
-}
+});
 
 // start the game
 getScore();
