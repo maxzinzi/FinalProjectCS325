@@ -152,5 +152,6 @@ export {
   setDJHighScore,
   getFroggerHighScore,
   getSnakeHighScore,
-  getDJHighScore
+  getDJHighScore,
+  updateSnakeScore
 };
