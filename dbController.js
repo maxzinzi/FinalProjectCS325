@@ -16,6 +16,17 @@ import { getDatabase, set, ref, get, child, update } from "https://www.gstatic.c
 
 const db = getDatabase();
 
+function updateSnakeScore() {
+		  // Get username from session storage
+		  const username = sessionStorage.getItem("username");
+
+		  // Get high score for user
+		  const highScore = getSnakeHighScore(username);
+
+		  // Update span element with high score value
+		  document.getElementById("snakeScore").textContent = highScore;
+		}
+
 const createUser = async (userID, password) => {
     await set(ref(db, "users/" + userID), {
         pwd: password,
