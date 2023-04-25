@@ -1,7 +1,6 @@
 // home sound effects
-let homeSound = new Audio('sounds/Electronic Fantasy.ogg');
-homeSound.playbackRate = 0.85;
-
+let homeSound = new Audio('sounds/lady-of-the-80x27s-128379.mp3');
+//homeSound.playbackRate = 0.85;
 
 var soundsMuted = document.getElementById("mute-sounds")
 
@@ -28,7 +27,7 @@ function updateSounds(isMuted) {
     homeSound.volume = 0;
   }
   else {
-    homeSound.volume = 0.075;
+    homeSound.volume = 0.050;
     
   }
 }
