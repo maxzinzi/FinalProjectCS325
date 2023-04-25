@@ -62,7 +62,7 @@ html, body {
 	height: 80px;
 	z-index: 1;
 	border-radius: 10px;
-  font-family: 'Monospace', sans-serif;
+  	font-family: 'Monospace', sans-serif;
 }
 
 .dropdown-content a, .dropdown-content label {
@@ -71,7 +71,7 @@ html, body {
 	display: block;
 	transition: all 0.2s ease-in-out;
 	border-radius: 10px;
-  text-align: left;
+  	text-align: left;
 }
 
 .dropdown:hover .dropdown-content {

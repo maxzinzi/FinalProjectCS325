@@ -1,4 +1,41 @@
-//pop up stats stuff
+// home sound effects
+let homeSound = new Audio('sounds/Electronic Fantasy.ogg');
+homeSound.playbackRate = 0.85;
+
+
+var soundsMuted = document.getElementById("mute-sounds")
+
+var isMuted = localStorage.getItem("mute-sounds") === "true";
+soundsMuted.checked = isMuted;
+
+updateSounds(isMuted);
+
+// event listener to replay when sound ends 
+homeSound.addEventListener('ended', function() {
+  this.currentTime = 0;
+  this.play();
+}, false);
+
+// event listener for mute-sounds checkbox
+soundsMuted.addEventListener("change", function() {
+  var isMuted = soundsMuted.checked;
+  updateSounds(isMuted);
+  localStorage.setItem("mute-sounds", isMuted);
+});
+
+function updateSounds(isMuted) {
+  if (isMuted) {
+    homeSound.volume = 0;
+  }
+  else {
+    homeSound.volume = 0.075;
+    
+  }
+}
+
+homeSound.play();
+
+// pop up stats stuff
 const highScoresBtn = document.getElementById('snake-scores-btn');
 const highScoresContainer = document.getElementById('snake-scores-container');
 const highScoresBtn2 = document.getElementById('frogger-scores-btn');
@@ -32,16 +69,17 @@ highScoresContainer3.addEventListener('mouseleave', () => {
 function openPopup(gameId, gameHtml) {
   var popup = document.getElementById("popup");
   var popupContent = document.getElementById("popup-content");
-  var game = gameHtml; // use the game HTML file name as the URL
+  var gameId = gameHtml; // use the game HTML file name as the URL
   
   // Set the size of the iframe element to make the popup bigger
-  popupContent.innerHTML = '<iframe src="' + game + '" width="800" height="800" tabindex="0"></iframe>';
+  popupContent.innerHTML = '<iframe src="' + gameId + '" width="800" height="800" tabindex="0"></iframe>';
 
   popup.style.display = "block";
 
   // Give focus to the iframe
   var iframe = document.querySelector('iframe');
   iframe.contentWindow.focus();
+  homeSound.volume = 0.05;
 }
 
 function closePopup() {
