@@ -80,7 +80,7 @@ const getUserStats = async (username) => {
             allStats = [snapshot.val().froggerHighScore, snapshot.val().snakeHighScore, snapshot.val().DJHighScore];
         }
         else{
-            alert("user doesnt exist lmao?");
+            alert("user doesnt exist");
         }
     });
     return allStats;
@@ -93,7 +93,7 @@ const getFroggerHighScore = async (username) => {
       if (snapshot.exists()) {
         frogScore = snapshot.val().froggerHighScore;
       } else {
-        alert("user doesnt exist lmao?");
+        alert("user doesnt exist");
       }
     });
     return frogScore;
@@ -106,7 +106,7 @@ const getSnakeHighScore = async (username) => {
     if (snapshot.exists()) {
       snakeScore = snapshot.val().snakeHighScore;
     } else {
-      alert("user doesnt exist lmao?");
+      alert("user doesnt exist");
     }
   });
   return snakeScore;
@@ -119,7 +119,7 @@ const getDJHighScore = async (username) => {
     if (snapshot.exists()) {
       DJscore = snapshot.val().DJHighScore;
     } else {
-      alert("user doesnt exist lmao?");
+      alert("user doesnt exist");
     }
   });
   return DJscore;
@@ -153,5 +153,4 @@ export {
   getFroggerHighScore,
   getSnakeHighScore,
   getDJHighScore,
-  updateSnakeScore
 };
