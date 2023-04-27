@@ -30,7 +30,7 @@ game1Muted.addEventListener("change", function() {
 });
 
 function updateSounds(isMuted) {
-  if (game1Muted.checked) {
+  if (isMuted) {
     eatSound.volume = 0;
     gameOverSound.volume = 0;
   }
